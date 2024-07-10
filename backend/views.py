@@ -56,6 +56,20 @@ def obtain_tokens(request):
     
 
 # DIARIO DE PESCA
-class DiarioPescaCrud(viewsets.ModelViewSet):
+class DiarioDePescaListView(generics.ListCreateAPIView):
     queryset = DiarioDePesca.objects.all()
     serializer_class = DiarioDePescaSerializer
+
+class DiarioDePescaDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = DiarioDePesca.objects.all()
+    serializer_class = DiarioDePescaSerializer
+
+
+class DiarioDePescaDeleteView(generics.DestroyAPIView):
+    queryset = DiarioDePesca.objects.all()
+    serializer_class = DiarioDePescaSerializer
+
+    def delete(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
