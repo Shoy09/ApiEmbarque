@@ -10,7 +10,7 @@ from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated
-
+from rest_framework import viewsets
 
 #------------Usuario--------------------
 from rest_framework.views import APIView
@@ -25,8 +25,6 @@ class UserListCreate(APIView):
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
-
-
 
 #------------token--------------------
 
@@ -56,3 +54,8 @@ def obtain_tokens(request):
 
         return Response(tokens, status=status.HTTP_200_OK)
     
+
+# DIARIO DE PESCA
+class DiarioPescaCrud(viewsets.ModelViewSet):
+    queryset = DiarioDePesca.objects.all()
+    serializer_class = DiarioDePescaSerializer
