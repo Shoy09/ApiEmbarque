@@ -44,13 +44,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 class DiarioDePesca(models.Model):
     embarcacion = models.CharField(max_length=255)
-    flota = models.CharField(max_length=255)
+    especie = models.CharField(max_length=255)
     fecha = models.DateField()
     numero_alcance = models.IntegerField()
     zona_pesca = models.CharField(max_length=255)
     estrato = models.CharField(max_length=255)
-    rango_profundidad_inicial = models.IntegerField()
-    rango_profundidad_final = models.IntegerField()
+    profundidad = models.IntegerField()
     tiempo_efectivo = models.TimeField()
     rango_talla_inicial = models.IntegerField()
     rango_talla_final = models.IntegerField()

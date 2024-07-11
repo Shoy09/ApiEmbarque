@@ -2,7 +2,7 @@
 #------------Usuario--------------------
 
 from rest_framework import serializers
-from .models import CustomUser, DiarioDePesca
+from .models import *
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -34,9 +34,9 @@ class DiarioDePescaSerializer(serializers.ModelSerializer):
 class EmbarcacionesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Embarcaciones
-        fields = '_all_'
+        fields = '__all__'
 
 class EspeciesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Especies
-        fields = '_all_'
+        fields = '__all__'
