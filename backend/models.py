@@ -61,3 +61,9 @@ class DiarioDePesca(models.Model):
 
     def __str__(self):
         return f"{self.embarcacion} - {self.fecha}"
+
+class Embarcaciones(models.Model):
+    nombre = models.CharField(max_length=255)
+
+class Especies(models.Model):
+    nombre = models.CharField(max_length=255)

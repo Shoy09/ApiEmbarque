@@ -30,3 +30,13 @@ class DiarioDePescaSerializer(serializers.ModelSerializer):
     class Meta:
         model = DiarioDePesca
         fields = '__all__'
+
+class EmbarcacionesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Embarcaciones
+        fields = '_all_'
+
+class EspeciesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Especies
+        fields = '_all_'
