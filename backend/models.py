@@ -41,9 +41,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.nombrey_apellido
 
-
 class DiarioDePesca(models.Model):
-    embarcacion = models.IntegerField()  # Cambiado a IntegerField para aceptar ID de Embarcaciones
+    embarcacion = models.IntegerField()  
     especie = models.IntegerField()
     fecha = models.DateField()
     numero_alcance = models.IntegerField()
@@ -66,3 +65,20 @@ class Embarcaciones(models.Model):
 
 class Especies(models.Model):
     nombre = models.CharField(max_length=255)
+    precio = models.IntegerField()
+
+class ZonaPesca(models.Model):
+    nombre = models.CharField(max_length=255)
+
+class TarifasCostos(models.Model):
+    nombre_t = models.CharField(max_length=255)
+    tarifa = models.DecimalField(max_digits=5, decimal_places=4)
+
+class Viveres(models.Model):
+    embarcacion = models.IntegerField()
+    costo_zarpe = models.DecimalField(max_digits=5, decimal_places=2)
+
+class MecanismosI(models.Model):
+    item = models.CharField(max_length=255)
+    costo_día = models.DecimalField(max_digits=5, decimal_places=2)
+

@@ -64,7 +64,6 @@ class DiarioDePescaDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = DiarioDePesca.objects.all()
     serializer_class = DiarioDePescaSerializer
 
-
 class DiarioDePescaDeleteView(generics.DestroyAPIView):
     queryset = DiarioDePesca.objects.all()
     serializer_class = DiarioDePescaSerializer
@@ -79,6 +78,31 @@ class EmbarcacionesListCreateView(generics.ListCreateAPIView):
     queryset = Embarcaciones.objects.all()
     serializer_class = EmbarcacionesSerializer
 
+#especies
 class EspeciesListCreateView(generics.ListCreateAPIView):
     queryset = Especies.objects.all()
     serializer_class = EspeciesSerializer
+
+#Zona Pesca
+class ZonaPescaListCreateView(generics.ListCreateAPIView):
+    queryset = ZonaPesca.objects.all()
+    serializer_class = ZonaPescaSerializer
+
+#TarifaCosto
+class TarifaCostoListCreateView(generics.ListCreateAPIView):
+    queryset = TarifasCostos.objects.all()
+    serializer_class = TarifasCostosSerializer
+
+#viveres
+class ViveresListCreateView(generics.ListCreateAPIView):
+    queryset = Viveres.objects.all()
+    serializer_class = ViveresSerializer
+
+#mecanismo
+class MecanismoListCreateView(generics.ListCreateAPIView):
+    queryset = MecanismosI.objects.all()
+    serializer_class = MecanismosISerializer
+
+
+
+

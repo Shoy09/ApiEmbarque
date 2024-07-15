@@ -40,3 +40,23 @@ class EspeciesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Especies
         fields = '__all__'
+
+class ZonaPescaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ZonaPesca
+        fields = '__all__'
+
+class TarifasCostosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TarifasCostos
+        fields = '__all__'
+
+class ViveresSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Viveres
+        fields = '__all__'
+
+class MecanismosISerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MecanismosI
+        fields = '__all__'
