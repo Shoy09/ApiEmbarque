@@ -43,8 +43,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 
 class DiarioDePesca(models.Model):
-    embarcacion = models.CharField(max_length=255)
-    especie = models.CharField(max_length=255)
+    embarcacion = models.IntegerField()  # Cambiado a IntegerField para aceptar ID de Embarcaciones
+    especie = models.IntegerField()
     fecha = models.DateField()
     numero_alcance = models.IntegerField()
     zona_pesca = models.CharField(max_length=255)
