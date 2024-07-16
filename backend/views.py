@@ -103,6 +103,16 @@ class MecanismoListCreateView(generics.ListCreateAPIView):
     queryset = MecanismosI.objects.all()
     serializer_class = MecanismosISerializer
 
+#tipo descripcion
+class TipoDescripcionListCreateView(generics.ListCreateAPIView):
+    queryset = TipoDescripcion.objects.all()
+    serializer_class = TipoDescripcionSerializer
+
+#costo galones
+class CostoGalonListCreateView(generics.ListCreateAPIView):
+    queryset = CostoGalon.objects.all()
+    serializer_class = CostoGalonSerializer
+
 
 
 

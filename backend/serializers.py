@@ -60,3 +60,13 @@ class MecanismosISerializer(serializers.ModelSerializer):
     class Meta:
         model = MecanismosI
         fields = '__all__'
+
+class TipoDescripcionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TipoDescripcion
+        fields = '__all__'
+
+class CostoGalonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CostoGalon
+        fields = '__all__'

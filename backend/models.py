@@ -72,7 +72,7 @@ class ZonaPesca(models.Model):
 
 class TarifasCostos(models.Model):
     nombre_t = models.CharField(max_length=255)
-    tarifa = models.DecimalField(max_digits=5, decimal_places=4)
+    tarifa = models.DecimalField(max_digits=9, decimal_places=4)
 
 class Viveres(models.Model):
     embarcacion = models.IntegerField()
@@ -81,4 +81,22 @@ class Viveres(models.Model):
 class MecanismosI(models.Model):
     item = models.CharField(max_length=255)
     costo_día = models.DecimalField(max_digits=5, decimal_places=2)
+
+class TipoDescripcion(models.Model):
+    descripcion = models.CharField(max_length=255)
+
+class CostoGalon(models.Model):
+    fecha = models.DateField()
+    tipo = models.ForeignKey(TipoDescripcion,on_delete=models.CASCADE)
+    costo = models.DecimalField(max_digits=6, decimal_places=2)
+
+class FlotaDP(models.Model):
+    fecha = models.DateField()
+    embarcacion = models.ForeignKey(Embarcaciones,on_delete=models.CASCADE)
+    zona_pesca = models.ForeignKey(ZonaPesca,on_delete=models.CASCADE)
+    horas_faena = models.DurationField()
+    kilos_declarados = models.DecimalField(max_digits=9, decimal_places=2)
+    especie = models.ForeignKey(Especies,on_delete=models.CASCADE)
+ 
+
 
