@@ -75,44 +75,50 @@ class TarifasCostos(models.Model):
     tarifa = models.DecimalField(max_digits=9, decimal_places=4)
 
 class Viveres(models.Model):
-    embarcacion = models.IntegerField()
+    embarcacion = models.ForeignKey(Embarcaciones,on_delete=models.CASCADE)
     costo_zarpe = models.DecimalField(max_digits=5, decimal_places=2)
 
 class MecanismosI(models.Model):
     item = models.CharField(max_length=255)
     costo_día = models.DecimalField(max_digits=5, decimal_places=2)
 
-class TipoDescripcion(models.Model):
-    descripcion = models.CharField(max_length=255)
-
-class CostoGalon(models.Model):
+class CostoGalonB_05(models.Model):
     fecha = models.DateField()
-    descripcion = models.ForeignKey(TipoDescripcion,on_delete=models.CASCADE)
+    costo = models.DecimalField(max_digits=6, decimal_places=2)
+
+class CostoGalonHielo(models.Model):
+    fecha = models.DateField()
+    costo = models.DecimalField(max_digits=6, decimal_places=2)
+
+class CostoGalonAgua(models.Model):
+    fecha = models.DateField()
+    costo = models.DecimalField(max_digits=6, decimal_places=2)
+
+class CostoTipoCambio(models.Model):
+    fecha = models.DateField()
     costo = models.DecimalField(max_digits=6, decimal_places=2)
 
 class FlotaDP(models.Model):
     fecha = models.DateField()
-    costo_galon = models.ForeignKey(CostoGalon,on_delete=models.CASCADE)
+    tipo_cambio = models.ForeignKey(CostoTipoCambio,on_delete=models.CASCADE)
     embarcacion = models.ForeignKey(Embarcaciones,on_delete=models.CASCADE)
     zona_pesca = models.ForeignKey(ZonaPesca,on_delete=models.CASCADE)
     horas_faena = models.DurationField()
     kilos_declarados = models.DecimalField(max_digits=9, decimal_places=2)
+    merluza = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True)
+    bereche = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True)
+    volador = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True)
+    merluza_descarte = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True)
+    otro = models.CharField(max_length=255, null=True, blank=True)
+    kilo_otro = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True)
     toneladas_procesadas= models.DecimalField(max_digits=9, decimal_places=2)
     toneladas_recibidas = models.DecimalField(max_digits=9, decimal_places=2)
 
     def __str__(self):
         return f'{self.fecha} - {self.embarcacion} - {self.zona_pesca}'
 
-class FlotaDPDetalle(models.Model):
-    flota_dp = models.ForeignKey(FlotaDP, on_delete=models.CASCADE, related_name='detalles')
-    especie = models.ForeignKey(Especies, on_delete=models.CASCADE)
-    cantidad = models.DecimalField(max_digits=9, decimal_places=2)
-
-    def __str__(self):
-        return f'{self.flota_dp} - {self.especie} - {self.cantidad}'
-
 class CostoTripulacion(models.Model):
-    TarifasCostos = models.ForeignKey(TarifasCostos,on_delete=models.CASCADE)
+    costo_basico = models.DecimalField(max_digits=9, decimal_places=2)
     participacion = models.DecimalField(max_digits=9, decimal_places=2)
     bonificacion = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True)
     total_participacion = models.DecimalField(max_digits=9, decimal_places=2)
@@ -127,8 +133,13 @@ class CostoTripulacion(models.Model):
     poliza_seguro = models.DecimalField(max_digits=9, decimal_places=2)
     total_CT = models.DecimalField(max_digits=9, decimal_places=2)
 
-class Consumo(models.Model):
+class ConsumoGasolina(models.Model):
+    embarcacion = models.IntegerField()
     consumo_gasolina = models.DecimalField(max_digits=9, decimal_places=2)
-    consumo_hielo = models.DecimalField(max_digits=9, decimal_places=2)
-    consumo_agua = models.DecimalField(max_digits=9, decimal_places=2)
+    total = models.DecimalField(max_digits=9, decimal_places=2)
+
+#class Consumo(models.Model):
+    #consumo_gasolina = models.DecimalField(max_digits=9, decimal_places=2)
+    #consumo_hielo = models.DecimalField(max_digits=9, decimal_places=2)
+    #consumo_agua = models.DecimalField(max_digits=9, decimal_places=2)
     

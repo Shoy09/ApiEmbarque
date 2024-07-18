@@ -93,6 +93,10 @@ class TarifaCostoListCreateView(generics.ListCreateAPIView):
     queryset = TarifasCostos.objects.all()
     serializer_class = TarifasCostosSerializer
 
+class TarifaCostoDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = TarifasCostos.objects.all()
+    serializer_class = TarifasCostosSerializer
+
 #viveres
 class ViveresListCreateView(generics.ListCreateAPIView):
     queryset = Viveres.objects.all()
@@ -103,16 +107,73 @@ class MecanismoListCreateView(generics.ListCreateAPIView):
     queryset = MecanismosI.objects.all()
     serializer_class = MecanismosISerializer
 
-#tipo descripcion
-class TipoDescripcionListCreateView(generics.ListCreateAPIView):
-    queryset = TipoDescripcion.objects.all()
-    serializer_class = TipoDescripcionSerializer
+# ListCreateAPIView para CostoGalonB_05
+class CostoGalonB_05_ListCreateView(generics.ListCreateAPIView):
+    queryset = CostoGalonB_05.objects.all()
+    serializer_class = CostoGalonB_05_Serializer
 
-#costo galones
-class CostoGalonListCreateView(generics.ListCreateAPIView):
-    queryset = CostoGalon.objects.all()
-    serializer_class = CostoGalonSerializer
+# RetrieveUpdateDestroyAPIView para CostoGalonB_05
+class CostoGalonB_05_RetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CostoGalonB_05.objects.all()
+    serializer_class = CostoGalonB_05_Serializer
 
+#HIELO
+class CostoHielo_ListCreateView(generics.ListCreateAPIView):
+    queryset = CostoGalonHielo.objects.all()
+    serializer_class = CostoHieloSerializer
+
+class CostoHielo_RetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CostoGalonHielo.objects.all()
+    serializer_class = CostoHieloSerializer
+
+# ListCreateAPIView para CostoGalonAgua
+class CostoGalonAguaListCreateView(generics.ListCreateAPIView):
+    queryset = CostoGalonAgua.objects.all()
+    serializer_class = CostoGalonAguaSerializer
+
+# RetrieveUpdateDestroyAPIView para CostoGalonAgua
+class CostoGalonAguaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CostoGalonAgua.objects.all()
+    serializer_class = CostoGalonAguaSerializer
+
+# ListCreateAPIView para CostoTipoCambio
+class CostoTipoCambioListCreateView(generics.ListCreateAPIView):
+    queryset = CostoTipoCambio.objects.all()
+    serializer_class = CostoTipoCambioSerializer
+
+# RetrieveUpdateDestroyAPIView para CostoTipoCambio
+class CostoTipoCambioRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CostoTipoCambio.objects.all()
+    serializer_class = CostoTipoCambioSerializer
+
+# ListCreateAPIView para FlotaDP
+class FlotaDPListCreateView(generics.ListCreateAPIView):
+    queryset = FlotaDP.objects.all()
+    serializer_class = FlotaDPSerializer
+
+# RetrieveUpdateDestroyAPIView para FlotaDP
+class FlotaDPRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = FlotaDP.objects.all()
+    serializer_class = FlotaDPSerializer
+
+# ListCreateAPIView para CostoTripulacion
+class CostoTripulacionListCreateView(generics.ListCreateAPIView):
+    queryset = CostoTripulacion.objects.all()
+    serializer_class = CostoTripulacionSerializer
+
+# RetrieveUpdateDestroyAPIView para CostoTripulacion
+class CostoTripulacionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CostoTripulacion.objects.all()
+    serializer_class = CostoTripulacionSerializer
+
+#ejemplo:
+class ConsumoGasolinaListCreateView(generics.ListCreateAPIView):
+    queryset = ConsumoGasolina.objects.all()
+    serializer_class = ConsumoGasolinaSerializer
+
+class ConsumoGasolinaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ConsumoGasolina.objects.all()
+    serializer_class = ConsumoGasolinaSerializer
 
 
 

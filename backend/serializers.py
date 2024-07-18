@@ -61,12 +61,37 @@ class MecanismosISerializer(serializers.ModelSerializer):
         model = MecanismosI
         fields = '__all__'
 
-class TipoDescripcionSerializer(serializers.ModelSerializer):
+class CostoGalonB_05_Serializer(serializers.ModelSerializer):
     class Meta:
-        model = TipoDescripcion
+        model = CostoGalonB_05
         fields = '__all__'
 
-class CostoGalonSerializer(serializers.ModelSerializer):
+class CostoHieloSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CostoGalon
+        model = CostoGalonHielo
+        fields = '__all__'
+
+class CostoGalonAguaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CostoGalonAgua
+        fields = '__all__'
+
+class CostoTipoCambioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CostoTipoCambio
+        fields = '__all__'
+
+class FlotaDPSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FlotaDP
+        fields = '__all__'
+
+class CostoTripulacionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CostoTripulacion
+        fields = '__all__'
+
+class ConsumoGasolinaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ConsumoGasolina
         fields = '__all__'

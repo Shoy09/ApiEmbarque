@@ -16,10 +16,23 @@ urlpatterns = [
     path('especies/', EspeciesListCreateView.as_view(), name='especies-list-create'),
     path('zona-pesca/', ZonaPescaListCreateView.as_view(), name='zona-pesca-create'),
     path('tarifa-costo/', TarifaCostoListCreateView.as_view(), name='tarifa-costo-create'),
+    path('tarifa-costo/<int:pk>/', TarifaCostoDetailView.as_view(), name='t_c_detail'),
     path('viveres/', ViveresListCreateView.as_view(), name='viveres-embarcacion-create'),
     path('mescanismo/', MecanismoListCreateView.as_view(), name='mescanismo-i-create'),
-    path('tipo-d/', TipoDescripcionListCreateView.as_view(), name='tipo-d'),
-    path('costo-galon/', CostoGalonListCreateView.as_view(), name='costo-galon')
+    path('costogalonb_05/', CostoGalonB_05_ListCreateView.as_view(), name='costogalonb_05_list_create'),
+    path('costogalonb_05/<int:pk>/', CostoGalonB_05_RetrieveUpdateDestroyView.as_view(), name='costogalonb_05_detail'),
+    path('costoHielo/', CostoHielo_ListCreateView.as_view(), name='hielo_create'),
+    path('costoHielo/<int:pk>/', CostoHielo_RetrieveUpdateDestroyView.as_view(), name='hielo_detail'),
+    path('costogalonagua/', CostoGalonAguaListCreateView.as_view(), name='costogalonagua_list_create'),
+    path('costogalonagua/<int:pk>/', CostoGalonAguaRetrieveUpdateDestroyView.as_view(), name='costogalonagua_detail'),
+    path('costotipocambio/', CostoTipoCambioListCreateView.as_view(), name='costotipocambio_list_create'),
+    path('costotipocambio/<int:pk>/', CostoTipoCambioRetrieveUpdateDestroyView.as_view(), name='costotipocambio_detail'),
+    path('flotadp/', FlotaDPListCreateView.as_view(), name='flotadp_list_create'),
+    path('flotadp/<int:pk>/', FlotaDPRetrieveUpdateDestroyView.as_view(), name='flotadp_detail'),
+    path('costotripulacion/', CostoTripulacionListCreateView.as_view(), name='costotripulacion_list_create'),
+    path('costotripulacion/<int:pk>/', CostoTripulacionRetrieveUpdateDestroyView.as_view(), name='costotripulacion_detail'),
+    path('consumo-gasolina/', ConsumoGasolinaListCreateView.as_view(), name='consumo-gasolina-list-create'),
+    path('consumo-gasolina/<int:pk>/', ConsumoGasolinaRetrieveUpdateDestroyView.as_view(), name='consumo-gasolina-retrieve-update-destroy'),
     ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
