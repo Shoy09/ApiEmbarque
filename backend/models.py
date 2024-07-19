@@ -80,7 +80,7 @@ class Viveres(models.Model):
 
 class MecanismosI(models.Model):
     item = models.CharField(max_length=255)
-    costo_día = models.DecimalField(max_digits=5, decimal_places=2)
+    costo_dia = models.DecimalField(max_digits=5, decimal_places=2)
 
 class CostoGalonB_05(models.Model):
     fecha = models.DateField()
@@ -98,7 +98,7 @@ class CostoTipoCambio(models.Model):
     fecha = models.DateField()
     costo = models.DecimalField(max_digits=6, decimal_places=2)
 
-class FlotaDP(models.Model):
+class FlotaDP(models.Model):                                                      
     fecha = models.DateField()
     tipo_cambio = models.ForeignKey(CostoTipoCambio,on_delete=models.CASCADE)
     embarcacion = models.ForeignKey(Embarcaciones,on_delete=models.CASCADE)
@@ -113,6 +113,20 @@ class FlotaDP(models.Model):
     kilo_otro = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True)
     toneladas_procesadas= models.DecimalField(max_digits=9, decimal_places=2)
     toneladas_recibidas = models.DecimalField(max_digits=9, decimal_places=2)
+    total_tripulacion =  models.DecimalField(max_digits=9, decimal_places=2)
+    consumo_gasolina = models.DecimalField(max_digits=9, decimal_places=2)
+    total_gasolina = models.DecimalField(max_digits=9, decimal_places=2)
+    consumo_hielo = models.DecimalField(max_digits=9, decimal_places=2)
+    total_hielo = models.DecimalField(max_digits=9, decimal_places=2)
+    consumo_agua = models.DecimalField(max_digits=9, decimal_places=2)
+    total_agua = models.DecimalField(max_digits=9, decimal_places=2)
+    consumo_viveres = models.DecimalField(max_digits=9, decimal_places=2)
+    total_vivieres = models.DecimalField(max_digits=9, decimal_places=2)
+    dias_inspeccion = models.DecimalField(max_digits=9, decimal_places=2)
+    total_servicio_inspeccion = models.DecimalField(max_digits=9, decimal_places=2)
+    total_derecho_pesca = models.DecimalField(max_digits=9, decimal_places=2)
+    total_costo = models.DecimalField(max_digits=9, decimal_places=2)
+    costo_tm_captura = models.DecimalField(max_digits=9, decimal_places=2)
 
     def __str__(self):
         return f'{self.fecha} - {self.embarcacion} - {self.zona_pesca}'
