@@ -100,7 +100,7 @@ class CostoTipoCambio(models.Model):
 
 class FlotaDP(models.Model):                                                      
     fecha = models.DateField()
-    tipo_cambio = models.ForeignKey(CostoTipoCambio,on_delete=models.CASCADE)
+    tipo_cambio = models.DecimalField(max_digits=9, decimal_places=2)
     embarcacion = models.ForeignKey(Embarcaciones,on_delete=models.CASCADE)
     zona_pesca = models.ForeignKey(ZonaPesca,on_delete=models.CASCADE)
     horas_faena = models.DurationField()
