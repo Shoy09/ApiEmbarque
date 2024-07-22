@@ -62,6 +62,7 @@ class DiarioDePesca(models.Model):
 
 class Embarcaciones(models.Model):
     nombre = models.CharField(max_length=255)
+    costo_zarpe = models.DecimalField(max_digits=8, decimal_places=2)
 
 class Especies(models.Model):
     nombre = models.CharField(max_length=255)
