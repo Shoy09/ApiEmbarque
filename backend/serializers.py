@@ -95,3 +95,8 @@ class ConsumoGasolinaSerializer(serializers.ModelSerializer):
     class Meta:
         model = ConsumoGasolina
         fields = '__all__'
+
+class DerechoPescaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DerechoPesca
+        fields = '__all__'

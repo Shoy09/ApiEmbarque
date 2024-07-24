@@ -19,6 +19,7 @@ urlpatterns = [
     path('tarifa-costo/<int:pk>/', TarifaCostoDetailView.as_view(), name='t_c_detail'),
     path('viveres/', ViveresListCreateView.as_view(), name='viveres-embarcacion-create'),
     path('mescanismo/', MecanismoListCreateView.as_view(), name='mescanismo-i-create'),
+    path('mescanismo/<int:pk>/', MecanismoRetrieveUpdateDestroyView.as_view(), name='mescanismo-crud'),
     path('costogalonb_05/', CostoGalonB_05_ListCreateView.as_view(), name='costogalonb_05_list_create'),
     path('costogalonb_05/<int:pk>/', CostoGalonB_05_RetrieveUpdateDestroyView.as_view(), name='costogalonb_05_detail'),
     path('costoHielo/', CostoHielo_ListCreateView.as_view(), name='hielo_create'),
@@ -33,6 +34,8 @@ urlpatterns = [
     path('costotripulacion/<int:pk>/', CostoTripulacionRetrieveUpdateDestroyView.as_view(), name='costotripulacion_detail'),
     path('consumo-gasolina/', ConsumoGasolinaListCreateView.as_view(), name='consumo-gasolina-list-create'),
     path('consumo-gasolina/<int:pk>/', ConsumoGasolinaRetrieveUpdateDestroyView.as_view(), name='consumo-gasolina-retrieve-update-destroy'),
+    path('derechopescas/', DerechoPescaListCreateView.as_view(), name='derechopescas_list_create'),
+    path('derechopescas/<int:pk>/', DerechoPescaRetrieveUpdateDestroyView.as_view(), name='derechopescas_retrieve_update_destroy'),
     ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

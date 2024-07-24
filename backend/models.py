@@ -151,7 +151,11 @@ class CostoTripulacion(models.Model):
 class ConsumoGasolina(models.Model):
     embarcacion = models.IntegerField()
     consumo_gasolina = models.DecimalField(max_digits=9, decimal_places=2)
-    total = models.DecimalField(max_digits=9, decimal_places=2)
+    total = models.DecimalField(max_digits=9, decimal_places=2) 
+
+class DerechoPesca(models.Model):
+    item = models.CharField(max_length=255)
+    costo = models.DecimalField(max_digits=9, decimal_places=2) 
 
 #class Consumo(models.Model):
     #consumo_gasolina = models.DecimalField(max_digits=9, decimal_places=2)

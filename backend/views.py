@@ -107,6 +107,10 @@ class MecanismoListCreateView(generics.ListCreateAPIView):
     queryset = MecanismosI.objects.all()
     serializer_class = MecanismosISerializer
 
+class MecanismoRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MecanismosI.objects.all()
+    serializer_class = MecanismosISerializer
+
 # ListCreateAPIView para CostoGalonB_05
 class CostoGalonB_05_ListCreateView(generics.ListCreateAPIView):
     queryset = CostoGalonB_05.objects.all()
@@ -165,6 +169,15 @@ class CostoTripulacionListCreateView(generics.ListCreateAPIView):
 class CostoTripulacionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = CostoTripulacion.objects.all()
     serializer_class = CostoTripulacionSerializer
+
+#Derecho de pesca
+class DerechoPescaListCreateView(generics.ListCreateAPIView):
+    queryset = DerechoPesca.objects.all()
+    serializer_class = DerechoPescaSerializer
+
+class DerechoPescaRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = DerechoPesca.objects.all()
+    serializer_class = DerechoPescaSerializer
 
 #ejemplo:
 class ConsumoGasolinaListCreateView(generics.ListCreateAPIView):
