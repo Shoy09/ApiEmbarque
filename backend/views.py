@@ -78,6 +78,10 @@ class EmbarcacionesListCreateView(generics.ListCreateAPIView):
     queryset = Embarcaciones.objects.all()
     serializer_class = EmbarcacionesSerializer
 
+class EmbarcacionesRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Embarcaciones.objects.all()
+    serializer_class = EmbarcacionesSerializer
+
 #especies
 class EspeciesListCreateView(generics.ListCreateAPIView):
     queryset = Especies.objects.all()

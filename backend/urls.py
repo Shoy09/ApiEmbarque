@@ -13,6 +13,7 @@ urlpatterns = [
     path('diarios-de-pesca/<int:pk>/', DiarioDePescaDetailView.as_view(), name='diario_de_pesca_detail'),
     path('diarios-de-pesca/<int:pk>/delete/', DiarioDePescaDeleteView.as_view(), name='diario_de_pesca_delete'),
     path('embarcaciones/', EmbarcacionesListCreateView.as_view(), name='embarcaciones-list-create'),
+    path('embarcaciones/<int:pk>/', EmbarcacionesRetrieveUpdateDestroyView.as_view(), name='embarcaciones-crud'),
     path('especies/', EspeciesListCreateView.as_view(), name='especies-list-create'),
     path('zona-pesca/', ZonaPescaListCreateView.as_view(), name='zona-pesca-create'),
     path('tarifa-costo/', TarifaCostoListCreateView.as_view(), name='tarifa-costo-create'),

@@ -104,7 +104,7 @@ class FlotaDP(models.Model):
     tipo_cambio = models.DecimalField(max_digits=9, decimal_places=2)
     embarcacion = models.ForeignKey(Embarcaciones,on_delete=models.CASCADE)
     zona_pesca = models.ForeignKey(ZonaPesca,on_delete=models.CASCADE)
-    horas_faena = models.DurationField()
+    horas_faena = models.CharField(max_length=255)
     kilos_declarados = models.DecimalField(max_digits=9, decimal_places=2)
     merluza = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True)
     bereche = models.DecimalField(max_digits=9, decimal_places=2, null=True, blank=True)
@@ -128,6 +128,7 @@ class FlotaDP(models.Model):
     total_derecho_pesca = models.DecimalField(max_digits=9, decimal_places=2)
     total_costo = models.DecimalField(max_digits=9, decimal_places=2)
     costo_tm_captura = models.DecimalField(max_digits=9, decimal_places=2)
+    csot = models.DecimalField(max_digits=9, decimal_places=2)
 
     def __str__(self):
         return f'{self.fecha} - {self.embarcacion} - {self.zona_pesca}'
